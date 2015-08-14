@@ -1,0 +1,12 @@
+<div class="auto-suggest-component">
+    <form>
+        <input type="text" id="searchTerm" name="searchTerm" data-ng-model="searchTerm" data-ng-change="search()" placeholder="What place are you looking for?" value="" autocomplete="off" required>
+    </form>
+    <div data-ng-show="hideResultList">
+        <p>NOTE : Type at least {{ctrl.noOfCharactersTyped}} characters</p>
+    </div>
+    <div class="results" data-ng-show="!hideResultList">
+        <div class="result" data-ng-class="{ 'active' : $index == active}" data-ng-repeat="result in searchResults |  limitTo:ctrl.noOfResultsShown">{{result[ctrl.typeaheadTitle]}}</div>
+    </div>
+    <div class="error" data-ng-show="error">Nothing found</div>
+</div>

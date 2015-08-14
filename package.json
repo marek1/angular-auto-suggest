@@ -1,0 +1,33 @@
+{
+  "name": "auto-suggest-component",
+  "version": "0.0.2",
+  "description": "An auto-suggest component for Angular.js",
+  "main": "auto-suggest-component.js",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-karma": "^0.0.4",
+    "jasmine-core": "^2.3.4",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma": "^0.13.2",
+    "karma-jasmine": "^0.3.6",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "karma-ng-html2js-preprocessor": "^0.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:marek1/angular-auto-suggest.git"
+  },
+  "keywords": [
+    "Angular",
+    "Javascript"
+  ],
+  "author": "Marek Sonnabend",
+  "license": "MIT"
+}

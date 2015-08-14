@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>auto-suggest</title>
+    <link rel="stylesheet" href="auto-suggest-component.css" />
+
+</head>
+<body data-ng-app="exampleApp">
+<div data-ng-controller="MainController as main">
+    <h1>auto-suggest</h1>
+    <p>
+        We will be using the auto-suggest component with the example of looking up places.
+    </p>
+    <hr/>
+    <auto-suggest-component
+            data-url="main.searchParameters.searchUrl"
+            data-typeahead-title="main.searchParameters.typeaheadTitle"
+            data-result="main.searchParameters.searchResult"
+            data-no-of-results-shown="main.searchParameters.noOfResultsShown"
+            data-no-of-characters-typed="main.searchParameters.noOfCharactersTyped">
+    </auto-suggest-component>
+    <hr/>
+    Result : <b>{{main.searchParameters.searchResult[main.searchParameters.typeaheadTitle]}}</b>
+</div>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="dist/auto-suggest-component.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

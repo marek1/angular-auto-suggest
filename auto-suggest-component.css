@@ -1,0 +1,16 @@
+.auto-suggest-component input[type="text"] {
+    width: 100%;
+    padding: 1px 1%;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    font-size: 20px;
+}
+.auto-suggest-component .results .result {
+    border: 1px solid #999;
+}
+
+.auto-suggest-component .results .result.active {
+    color: #FFFFFF;
+    background-color: #006600;
+}
