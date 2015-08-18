@@ -3,22 +3,16 @@ var gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   jasmine = require('gulp-jasmine'),
   uglify = require('gulp-uglify'),
-  rename = require('gulp-rename');
-Server = require('karma').Server;
+  rename = require('gulp-rename'),
+  Server = require('karma').Server,
+  htmlmin = require('gulp-htmlmin'),
+  replace = require('gulp-replace'),
+  fs = require('fs');
 
 gulp.task('jshint', function() {
   return gulp.src('*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default', { verbose: true }));
-});
-
-gulp.task('compress', function() {
-  return gulp.src('auto-suggest-component.js')
-    .pipe(uglify())
-    .pipe(rename({
-      extname: '.min.js'
-    }))
-    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('connect', function() {
@@ -39,4 +33,34 @@ gulp.task('watch', function() {
   gulp.watch("*.js", ["jshint", "karma"]);
 });
 
+gulp.task('htmlmin', function() {
+  return gulp.src('auto-suggest-component.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('tmp'))
+});
+
+gulp.task('replace_html', ['htmlmin'], function(){
+  return gulp.src(['tmp/auto-suggest-component.html'])
+    .pipe(replace(/'/g, "\\'"))
+    .pipe(gulp.dest('tmp/'));
+});
+
+gulp.task('replace_js', ['htmlmin', 'replace_html'], function(){
+  return gulp.src(['auto-suggest-component.js'])
+    .pipe(replace('templateUrl', 'template'))
+    .pipe(replace('auto-suggest-component.html', fs.readFileSync('tmp/auto-suggest-component.html')))
+    .pipe(gulp.dest('tmp/'));
+});
+
+gulp.task('compress', ['htmlmin', 'replace_html', 'replace_js'],  function() {
+  return gulp.src('tmp/auto-suggest-component.js')
+    .pipe(uglify())
+    .pipe(rename({
+      extname: '.min.js'
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
+
 gulp.task('default', ['connect', 'watch']);
+gulp.task('build', ['htmlmin', 'replace_html', 'replace_js', 'compress']);

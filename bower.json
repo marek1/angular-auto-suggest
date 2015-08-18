@@ -1,11 +1,11 @@
 {
   "name": "angular-auto-suggest",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "authors": [
     "marek1 <cyclingfellas@gmail.com>"
   ],
   "description": "An auto-suggest component for Angular.js",
-  "main": "auto-suggest.js",
+  "main": "dist/auto-suggest-component.min.js",
   "keywords": [
     "angular",
     "javascript"
