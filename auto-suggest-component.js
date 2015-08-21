@@ -1,5 +1,5 @@
 /*
- * Version : 0.0.3
+ * Version : 0.0.4
  * Author : Marek Sonnabend
  */
 
@@ -69,6 +69,12 @@ var autoSuggestComponent = angular.module('autoSuggestComponent', [
       $scope.searchResults = [];
       $scope.active = -1;
     };
+
+    $scope.select = function(index) {
+      $scope.active = index;
+      $scope.selectActive();
+    };
+
 }])
 .directive('autoSuggestComponent', function() {
     return {

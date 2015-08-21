@@ -1,6 +1,6 @@
 {
   "name": "auto-suggest-component",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An auto-suggest component for Angular.js",
   "main": "dist/auto-suggest-component.min.js",
   "devDependencies": {

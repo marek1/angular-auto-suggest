@@ -14,3 +14,8 @@
     color: #FFFFFF;
     background-color: #006600;
 }
+
+.auto-suggest-component .results .result:hover {
+    color: #FFFFFF;
+    background-color: #006600;
+}
